@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="Keywords" content=""/>
+		<meta name="Description" content=""/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<title>vip课</title>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	</head>
+	<body>
+		<div id="content">
+			<div class="div1 size">
+				<div id="bg">
+					<div id="main">
+						<!--图片区 开始-->
+						<div id="pic">
+							<ul class="cal">
+								<li style="display:block;">
+									<a href="#"><img src="img/1.jpg"/></a>
+									<p class="introduce">レッスンを担当する講師は、指導経験豊富なプロフェッショナル</p>
+								</li>
+								<li>
+									<a href="#"><img src="img/2.jpg" /></a>
+									<p class="introduce">英国の最新理論を踏まえ、40年間にわたる英語教授経験とノウハウの蓄積がskyのレッスンを支えています。</p>
+								</li>
+								<li>
+									<a href="#"><img src="img/3.jpg" /></a>
+									<p class="introduce">英会話から、文章の添削まで、さまざなにサッポートをしております。</p>
+								</li>
+								<li>
+									<a href="#"><img src="img/4.jpg" /></a>
+									<p class="introduce">明るい教室で勉強しませんか。</p>
+								</li>
+								<li>
+									<a href="#"><img src="img/5.jpg" /></a>
+									<p class="introduce">自習室もご利用いただけます。</p>
+								</li>
+								<li>
+									<a href="#"><img src="img/6.jpg" /></a>
+									<p class="introduce">東京駅近く、通いやすいです。</p>
+								</li>
+							</ul>
+						</div>
+						<!--图片区 结束-->
+						<!--按钮区 开始-->
+						<div id="but">
+							<ul>
+								<li class="cho"></li><li></li><li></li><li></li><li></li><li></li>
+							</ul>
+						</div>
+						<!--按钮区 结束-->
+						<!--左按钮-->
+						<div class="left-b button">&lt;</div>
+						<!--右按钮-->
+						<div class="right-b button">&gt;</div>
+					</div>
+				</div>
+				<script src="js/jquery-1.11.1.min.js"></script>
+				<script>
+					var a = 0;
+					var b = 0;
+					var Play = null;
+					//鼠标点击底部按钮事件
+					$('#but ul li').click(function(){
+						a = $(this).index();
+						b = -a*1280;
+						$(this).addClass('cho').siblings().removeClass('cho');/*按钮变色*/
+						$('#pic').animate({'left':b+'px'},500)/*换图*/
+					});
+
+					//鼠标悬停 轮播停止/启动
+					$('#main').hover(function(){
+						clearInterval(Play);
+					},function(){
+						auto();
+					})
+
+					//封装
+					function com(){
+							$('#but ul li').eq(a).addClass('cho').siblings().removeClass('cho');
+							$('#pic').animate({'left':b+'px'},500);
+					}
+
+					//轮播函数
+					function auto(){
+						Play=setInterval(function(){
+							a++;
+							b = -a*1280;
+							if(a<6){
+								com();
+								if(a == 5){a=-1};
+							}else{
+								a = -1;
+							}
+						},2000)
+					};
+					//轮播执行
+					auto();
+
+					//右按钮
+					$('#main .right-b').click(function(){
+						a++;
+						b = -a*1280;
+						if(a<6){
+							com();
+							if(a >= 5){a=-1};
+						}else{
+							a = -1;
+						}
+					})
+
+					//左按钮
+					$('#main .left-b').click(function(){
+						a--;
+						b = -a*1280;
+						if(a>-1){
+							com();
+							if(a == 0){a=6};
+						}else{
+							a = 6;
+						}
+					})
+				</script>
+			</div>
+			<div class="div2 size">
+				<div class="context-title-box">
+					<h1 class="context-title">大人気の先生</h1>
+				</div>
+				<div class="bg2">
+					<div class="show">
+						<div class="picture1 picture">
+							<div class="txt2">
+								<p class="p1">スミスさん</p>
+								<p class="p2">アメリカ出身　明るい系　在日３年、</p>
+							</div>
+						</div>
+						<div class="picture2 picture">
+							<div class="txt2">
+								<p class="p1">リーさん</p>
+								<p class="p2">イギリス出身　在日一年　真面目系、</p>
+							</div>
+						</div>
+						<div class="picture3 picture">
+							<div class="txt2">
+								<p class="p1">佐藤さん</p>
+								<p class="p2">アメリカ人と日本人のハーフ　英語初心者に大人気</p>
+							</div>
+						</div>
+						<div class="picture4 picture">
+							<div class="txt2">
+								<p class="p1">サンさん</p>
+								<p class="p2">アメリカ出身　講師経験数十年　在日１０年</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="link-detail-box">
+					<a href="#">もっと知りたい</a>
+				</div>
+				<script>
+					$(".picture").hover(function(){
+						$(this).stop(true).animate({width:"789px"},500).siblings().stop(true).animate({width:"100px"},500);
+					});
+				</script>
+			</div>
+			<div class="div3 size">
+				<div class="course">
+					<div>
+						<div class="course-intro course-intro1">
+							<p class="course-intro-title">日常英会話コース</p>
+							<p class="course-intro-text">先進技術の「デジタルレッスン」を本格導入！臨場感あふれるレッスンで、会話量も増え、楽しく、上達を促します。</p>
+							<a href="#" class="link-to-detail">詳しくはこちら</a>
+						</div>
+						<div class="course-intro course-intro2">
+							<p class="course-intro-title">ビジネス英会話コース</p>
+							<p class="course-intro-text">正確な文章で話す力を身につけて商談力もアップ。実践的なビジネスマナーや会話のマナーも一緒に学べます。</p>
+							<a href="#" class="link-to-detail">詳しくはこちら</a>
+						</div>
+						<div class="course-intro course-intro3">
+							<p class="course-intro-title">TOEIC® L&R テスト対策コース</p>
+							<p class="course-intro-text">短期間でスコアアップするには、自宅学習に加えて、プロが指導する通学レッスンを組み合わせることで実力アップ！</p>
+							<a href="#" class="link-to-detail">詳しくはこちら</a>
+						</div>
+						<div class="course-intro course-intro4">
+							<p class="course-intro-title">学生のための英会話</p>
+							<p class="course-intro-text">成績アップ、英検合格、ホームスティをサポート。英語でのコミュニケーション力を身につけます。</p>
+							<a href="#" class="link-to-detail">詳しくはこちら</a>
+						</div>
+				</div>
+				</div>
+			</div>
+			<div class="div4 size">
+				<div class="contact-box">
+					<div class="email-box">
+						<h1 class="email-title"><img src="img/email.png" class="email-icon"></img>E-mail</h1>
+						<p class="email-detail">skyotoiawase@sky.co.jp</p>
+					</div>
+					<div class="tel-box">
+						<h1 class="tel-title"><img src="img/tel.png" class="tel-icon"></img>tel</h1>
+						<p class="tel-detail">070-1069-1111</p>
+					</div>
+					<div class="ask">
+						<h1 class="ask-title"><img src="img/ask.png" class="ask-icon"></img>お問い合わせ</h1>
+						<form action="post">
+							<div class="contact-devide"><p>お名前</p><input type="text" required="required"/></div>
+							<div class="contact-devide"><p>e-mail</p><input type="email" required="required"/></div>
+							<div class="contact-devide"><p>お問い合わせ内容</p><input type="textarea" required="required"/></div>
+							<div class="contact-devide"><input type="submit" value="submit"></div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav">
+			<h1><img src="img/logo.png"/></h1>
+			<ul>
+				<li class="txt hov"><a href="">home</a></li>
+				<li class="txt"><a href="">SKY特徴</a></li>
+				<li class="txt"><a href="">講座紹介</a></li>
+				<li class="txt"><a href="">講師紹介</a></li>
+				<li class="bor"></li>
+			</ul>
+		</div>
+
+		<div id="l-nav">
+			<ul>
+				<li class="cho">about us</li>
+				<li>teacher</li>
+				<li>lesson</li>
+				<li>contact us</li>
+			</ul>
+		</div>
+
+<script type="text/javascript">
+var hei;
+var a = 0;
+	window.onload = function(){
+		$("#nav .txt").mouseover(function(){
+			$(this).addClass("hov").siblings().removeClass("hov");
+			var tWid = $(this).width();
+			var bWid = tWid + 28;
+			var fWid = $(this).position().left + 36;
+			$(".bor").stop(true).animate({width:bWid+"px",left:fWid+"px"},500);
+		});
+
+		$("#nav ul").mouseleave(function(){
+			$(".bor").stop(true).animate({width:"56px",left:"36px"},200);
+			$(this).find("li").eq(0).addClass("hov").siblings().removeClass("hov");
+		});
+
+		$(window).scroll(function(){
+			var n = parseInt($(window).scrollTop() / $(window).height());
+			$("#l-nav ul li").eq(n).addClass("cho").siblings().removeClass("cho");
+		});
+	}
+</script>
+	</body>
+</html>
