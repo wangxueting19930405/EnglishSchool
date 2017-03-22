@@ -254,6 +254,8 @@ h3{
   font-weight:700;
   float:left;
   margin-left:15px;
+  letter-spacing: -2px;
+  line-height: 15px;
 }
 .context-title-box {
     position: absolute;
@@ -338,6 +340,7 @@ p.email-detail,p.tel-detail,p.ask-detail {
 }
 h1.email-title>img,h1.tel-title>img, h1.ask-title>img {
     width: 28px;
+    margin-right: 4px;
 }
 .contact-box {
     width: 320px;
@@ -369,9 +372,16 @@ input[type="textarea"] {
 }
 input[type="submit"] {
     width: 70px;
-    background: white;
+    background: rgba(0, 0, 0, 0);
     height: 27px;
     font-size: 16px;
     padding: 3px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
+    color: white;
+}
+.contact-box p {
+    text-indent: 29px;
+}
+.contact-box input{
+    margin-left:29px;
 }
